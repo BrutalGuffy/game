@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GameServer/GameServer.iml" filepath="$PROJECT_DIR$/.idea/modules/GameServer/GameServer.iml" group="GameServer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GameServer/GameServer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GameServer/GameServer_main.iml" group="GameServer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GameServer/GameServer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GameServer/GameServer_test.iml" group="GameServer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker.iml" filepath="$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker.iml" group="MatchMaker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker_main.iml" group="MatchMaker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MatchMaker/MatchMaker_test.iml" group="MatchMaker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend.iml" filepath="$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend.iml" group="bomberman/frontend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend_main.iml" group="bomberman/frontend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bomberman/frontend/bomberman_frontend_test.iml" group="bomberman/frontend" />
+      <module fileurl="file://$PROJECT_DIR$/game.iml" filepath="$PROJECT_DIR$/game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game_main.iml" filepath="$PROJECT_DIR$/.idea/modules/game_main.iml" group="game" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game_test.iml" filepath="$PROJECT_DIR$/.idea/modules/game_test.iml" group="game" />
+    </modules>
+  </component>
+</project>

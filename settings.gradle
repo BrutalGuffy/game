@@ -1,0 +1,5 @@
+rootProject.name = 'game'
+include 'MatchMaker'
+include 'bomberman/frontend'
+include 'GameServer'
+

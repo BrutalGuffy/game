@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="bomberman_frontend_main" target="1.8" />
+      <module name="bomberman_frontend_test" target="1.8" />
+      <module name="game_main" target="1.8" />
+      <module name="game_test" target="1.8" />
+      <module name="GameServer_main" target="1.8" />
+      <module name="GameServer_test" target="1.8" />
+      <module name="lecture05_main" target="1.8" />
+      <module name="lecture05_test" target="1.8" />
+      <module name="MatchMaker_main" target="1.8" />
+      <module name="MatchMaker_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
