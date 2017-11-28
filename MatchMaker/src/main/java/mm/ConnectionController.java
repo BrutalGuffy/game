@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,6 +18,8 @@ public class ConnectionController {
     private static AtomicLong id = new AtomicLong();
     public static String GameId = "-1";
 
+    @Autowired
+    private GameService gameService;
 
     @RequestMapping(
             path = "matchmaker/join",
@@ -36,6 +39,8 @@ public class ConnectionController {
         }
         //<-----MatchMaker make POST REQUEST to GS and return id to GameId--->
         log.info("MM returned to player Login={} GameId={}", name, GameId);
+        gameService.login(parts[1]);
+        gameService.login(parts[1]);
         return GameId;
     }
 

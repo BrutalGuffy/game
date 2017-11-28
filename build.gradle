@@ -3,9 +3,6 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
-springBoot {
-    mainClass = "ru.atom.chat.ChatApplication"
-}
 
 // constants declaration
 ext {
@@ -20,6 +17,7 @@ ext {
     postgresVersion = "9.4-1200-jdbc41"
     jetbrainsAnnotationVersion = "15.0"
     hibernateVersion = "5.1.10.Final"
+    websocketVersion = "9.4.3.v20170317"
     jolVersion = "0.8"
 }
 
@@ -80,8 +78,9 @@ ext.libraries = [
         gson: "com.google.code.gson:gson:$gsonjVersion",
         postgres: "org.postgresql:postgresql:$postgresVersion",
         hibernate: "org.hibernate:hibernate-core:$hibernateVersion",
+        hibernate1: "org.hibernate:hibernate-entitymanager:5.2.12",
         jol: "org.openjdk.jol:jol-core:$jolVersion",
-        jol_samples: "org.openjdk.jol:jol-samples:$jolVersion"
+        jol_samples: "org.openjdk.jol:jol-samples:$jolVersion",
 ]
 
 // code coverage settings
@@ -109,3 +108,6 @@ coveralls {
     sourceDirs = files(subprojects.sourceSets.main.allSource.srcDirs).files.absolutePath
 }
 
+
+
+//ch.qos.logback logback-classic
