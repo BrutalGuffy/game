@@ -22,16 +22,6 @@ public class HttpClient {
 
         return response.body().string();
     }
-
-    public Response get(String url) throws Exception {
-
-        Request request = new Request.Builder()
-                .get()
-                .url(url)
-                .build();
-
-        return client.newCall(request).execute();
-    }
 }
 
 

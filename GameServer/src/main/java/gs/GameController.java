@@ -46,12 +46,6 @@ public class GameController {
             throws InterruptedException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         log.info("Starting game GameId={}", gameId);
-        //<----STARTING GAME??????????????????????---->
-        /*GameSession session = new GameSession(candidates.toArray(new Connection[0]));
-        log.info(session);
-        GameRepository.put(session);
-        candidates.clear();
-        conCon.setGameId(session.getId());*/
         return gameId;
     }
 }

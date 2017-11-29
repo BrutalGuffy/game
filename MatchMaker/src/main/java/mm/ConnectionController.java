@@ -32,6 +32,7 @@ public class ConnectionController {
     @ResponseBody
     public String connect(@RequestBody String name, HttpServletResponse response) throws InterruptedException {
         response.setHeader("Access-Control-Allow-Origin", "*");
+        log.info("Fronteng request={}", name);
         long newId = id.getAndIncrement();
         String[] parts = name.split("=");
         ConnectionQueue.getInstance().offer(new Connection(newId, parts[1]));
@@ -45,8 +46,8 @@ public class ConnectionController {
         return gameId;
     }
 
-    public static void set_gameId(String gameId) {
-        gameId = gameId;
+    public static void set_gameId(String gameid) {
+        gameId = gameid;
     }
 }
 
