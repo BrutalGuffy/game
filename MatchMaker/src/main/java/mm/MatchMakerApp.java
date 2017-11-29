@@ -9,7 +9,6 @@ public class MatchMakerApp {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(MatchMakerApp.class, args);
         Thread matchMaker = new Thread(new MatchMaker());
-        matchMaker.setName("match-maker");
         matchMaker.start();
     }
 }

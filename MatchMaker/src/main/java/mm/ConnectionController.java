@@ -1,13 +1,16 @@
 package mm;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.atomic.AtomicLong;
@@ -16,10 +19,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ConnectionController {
     private static final Logger log = LogManager.getLogger(ConnectionController.class);
     private static AtomicLong id = new AtomicLong();
-    public static String GameId = "-1";
+    public static String gameId = "-1";
 
-    @Autowired
-    private GameService gameService;
+    //@Autowired
+    //private GameService gameService;
 
     @RequestMapping(
             path = "matchmaker/join",
@@ -34,18 +37,16 @@ public class ConnectionController {
         ConnectionQueue.getInstance().offer(new Connection(newId, parts[1]));
 
         log.info("New connection LOGIN={} ID={}", parts[1],newId);
-        while (GameId == "-1") {   //have to fix this shit
-           log.info("Waiting for MatchMaker response",GameId);
+        while (gameId == "-1") {   //have to fix this shit
+            log.info("Waiting for MatchMaker response",gameId);
         }
-        //<-----MatchMaker make POST REQUEST to GS and return id to GameId--->
-        log.info("MM returned to player Login={} GameId={}", name, GameId);
-        gameService.login(parts[1]);
-        gameService.login(parts[1]);
-        return GameId;
+        //<-----MatchMaker did POST REQUEST to GS and return id to GameId--->
+        log.info("MM returned to player Login={} GameId={}", name, gameId);
+        return gameId;
     }
 
-    public static void set_GameId(String Game_Id) {
-        GameId = Game_Id;
+    public static void set_gameId(String gameId) {
+        gameId = gameId;
     }
 }
 

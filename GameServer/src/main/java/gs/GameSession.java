@@ -9,10 +9,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class GameSession {
     private static final Logger log = LogManager.getLogger(GameServer.class);
     private static AtomicLong idGenerator = new AtomicLong();
-
-    public static final int PLAYERS_IN_GAME = 4;
-
-    //private final Connection[] connections;
     private static final long id = idGenerator.getAndIncrement();
 
     /*public GameSession(Connection[] connections) {

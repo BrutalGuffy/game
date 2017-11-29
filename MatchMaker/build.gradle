@@ -1,13 +1,13 @@
 dependencies {
     compile rootProject.libraries.spring_boot
     compile rootProject.libraries.log4j
-    compile rootProject.libraries.okio
     compile rootProject.libraries.okhttp
     compile rootProject.libraries.postgres
-    compile rootProject.libraries.hibernate
-    compile rootProject.libraries.hibernate1
     compile rootProject.libraries.jetbrainsAnnotations
-    compile rootProject.libraries.spring_boot_jpa
+    compile rootProject.libraries.hibernate
+
+    testCompile rootProject.libraries.junit
+    testCompile rootProject.libraries.spring_boot_test
 }
 
 sourceSets {
@@ -24,6 +24,5 @@ sourceSets {
 }
 
 configurations {
-    compile.exclude module: 'logback-classic'
-    compile.exclude group: 'ch.qos.logback'
+    compile.exclude group:'ch.qos.logback'
 }

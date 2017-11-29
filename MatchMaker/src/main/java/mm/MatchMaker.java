@@ -1,6 +1,5 @@
 package mm;
 
-import okhttp3.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,8 +8,8 @@ import java.util.List;
 
 public class MatchMaker implements Runnable {
     private static final Logger log = LogManager.getLogger(MatchMaker.class);
-    private static String GameId = "-1";
-    private static int Players_in_game = 0;
+    private static String gameId = "-1";
+    private static int players_in_game = 0;
     private static final int PLAYERS_NEED = 4;
 
     @Override
@@ -18,15 +17,14 @@ public class MatchMaker implements Runnable {
         log.info("Started");
         ConnectionController conCon = new ConnectionController();
         while (!Thread.currentThread().isInterrupted()) {
-            if (this.GameId == "-1" && ConnectionQueue.getInstance().size() == 1) {
+            if (this.gameId == "-1" && ConnectionQueue.getInstance().size() == 1) {
                 //POST REQUEST TO 8090/create/game---->
                 HttpClient httpCl = new HttpClient();
                 try {
-                    //GameId = httpCl.post("http://localhost:8080/create/game", ConnectionQueue.getInstance().poll().toString());
-                    GameId = httpCl.post("http://localhost:8080/game/create", Integer.toString(PLAYERS_NEED));
-                    log.info("GS returned Game_Id={}",GameId);
-                    ConnectionController.set_GameId(GameId);
-                    this.Players_in_game++;
+                    gameId = httpCl.post("http://localhost:8080/game/create", Integer.toString(PLAYERS_NEED));
+                    log.info("GS returned Game_Id={}",gameId);
+                    ConnectionController.set_gameId(gameId);
+                    this.players_in_game++;
                     ConnectionQueue.getInstance().poll();
                     log.info("First player joined");
 
@@ -35,37 +33,38 @@ public class MatchMaker implements Runnable {
                     e.printStackTrace();
                 }
             }
-            if (this.GameId != "-1" && ConnectionQueue.getInstance().size() == 1) {
-                this.Players_in_game++;
-                log.info("One more player in game. Now players={}", Players_in_game);
+            if (this.gameId != "-1" && ConnectionQueue.getInstance().size() == 1) {
+                this.players_in_game++;
+                log.info("One more player in game. Now players={}", players_in_game);
                 ConnectionQueue.getInstance().poll();
             }
-            if (Players_in_game == 4) {
+            if (players_in_game == 4) {
                 //POST REQUEST TO 8090/start/game---->
                 log.info("All players in game. Start game.");
                 HttpClient httpCl = new HttpClient();
                 try {
-                    //GameId = httpCl.post("http://localhost:8080/create/game", ConnectionQueue.getInstance().poll().toString());
-                    String Game_start = httpCl.post("http://localhost:8080/game/start", GameId);
-                    log.info("Starting game id={}", GameId);
+                    String gameStart = httpCl.post("http://localhost:8080/game/start", gameId);
+                    log.info("Starting game id={}", gameStart);
                 } catch (Exception e) {
                     log.info("Failed to start this game");
                     e.printStackTrace();
                 }
                 set_GameId("-1");
-                ConnectionController.set_GameId("-1");
-                set_Players_in_game(0);
+                ConnectionController.set_gameId("-1");
+                set_players_in_game(0);
             }
         }
     }
 
-    public static String get_GameId() {
-        return GameId;
+    public static String get_gameId() {
+        return gameId;
     }
-    public static void set_GameId(String Game_Id) {
-        GameId = Game_Id;
+
+    public static void set_GameId(String gameid) {
+        gameId = gameid;
     }
-    public static void set_Players_in_game(int n) {
-        Players_in_game = n;
+
+    public static void set_players_in_game(int n) {
+        players_in_game = n;
     }
 }

@@ -1,34 +1,33 @@
 package gs;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.atomic.AtomicLong;
 
-
 @Controller
 public class GameController {
     private static final Logger log = LogManager.getLogger(GameController.class);
     private static AtomicLong idGenerator = new AtomicLong();
-    /**
-     * curl test
-     *
-     curl -i -X POST -H "Content-Type: application/x-www-form-urlencoded" localhost:8080/create/game -d 'names=dm1tryK'
-     */
+
     @RequestMapping(
             path = "game/create",
             method = RequestMethod.POST,
-            consumes="application/json",
+            consumes = "application/json",
             headers = "content-type=application/x-www-form-urlencoded")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public String create(@RequestBody String count, HttpServletResponse response, HttpServletRequest request) throws InterruptedException {
+    public String create(@RequestBody String count, HttpServletResponse response, HttpServletRequest request)
+            throws InterruptedException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         log.info("Creating game for ={} players", count);
         long id = idGenerator.getAndIncrement();
@@ -36,23 +35,23 @@ public class GameController {
         return Long.toString(id);
     }
 
-
     @RequestMapping(
             path = "game/start",
             method = RequestMethod.POST,
-            consumes="application/json",
+            consumes = "application/json",
             headers = "content-type=application/x-www-form-urlencoded")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public String start(@RequestBody String Game_Id, HttpServletResponse response, HttpServletRequest request) throws InterruptedException {
+    public String start(@RequestBody String gameId, HttpServletResponse response, HttpServletRequest request)
+            throws InterruptedException {
         response.setHeader("Access-Control-Allow-Origin", "*");
-        log.info("Starting game GameId={}", Game_Id);
+        log.info("Starting game GameId={}", gameId);
         //<----STARTING GAME??????????????????????---->
         /*GameSession session = new GameSession(candidates.toArray(new Connection[0]));
         log.info(session);
         GameRepository.put(session);
         candidates.clear();
         conCon.setGameId(session.getId());*/
-        return Game_Id;
+        return gameId;
     }
 }

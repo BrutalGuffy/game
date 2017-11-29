@@ -1,8 +1,5 @@
 package mm;
 
-/**
- * Created by sergey on 3/14/17.
- */
 public class Connection {
     private final long playerId;
     private final String name;
