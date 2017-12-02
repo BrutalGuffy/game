@@ -16,10 +16,9 @@ public class MatchMaker implements Runnable {
     public void run() {
         log.info("Started");
         while (!Thread.currentThread().isInterrupted()) {
-            if (this.gameId == "-1" && ConnectionQueue.getInstance().size() == 1) {
+            if (this.gameId == "-1" && ConnectionQueue.getInstance().size() > 0) {
                 //POST REQUEST TO 8090/create/game---->
                 HttpClient httpCl = new HttpClient();
-                log.info("!!!!!!!!!!!!!");
                 try {
                     gameId = httpCl.post("http://localhost:8080/game/create", Integer.toString(PLAYERS_NEED));
                     log.info("GS returned Game_Id={}",gameId);
@@ -33,7 +32,7 @@ public class MatchMaker implements Runnable {
                     e.printStackTrace();
                 }
             }
-            if (this.gameId != "-1" && ConnectionQueue.getInstance().size() == 1) {
+            if (this.gameId != "-1" && ConnectionQueue.getInstance().size() > 0) {
                 players_in_game++;
                 log.info("One more player in game. Now players={}", players_in_game);
                 ConnectionQueue.getInstance().poll();

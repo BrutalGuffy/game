@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @Ignore
-public class ConnectionQueueTest {
+public class ConnectionTest {
 
     @Before
     public void setUp() throws Exception {

@@ -39,6 +39,7 @@ public class ConnectionController {
 
         log.info("New connection LOGIN={} ID={}", parts[1],newId);
         while (gameId == "-1") {   //have to fix this shit
+            Thread.sleep(2000);
             log.info("Waiting for MatchMaker response",gameId);
         }
         //<-----MatchMaker did POST REQUEST to GS and return id to GameId--->

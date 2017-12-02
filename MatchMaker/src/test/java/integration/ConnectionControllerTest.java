@@ -1,29 +1,56 @@
 package integration;
 
 import mm.ConnectionController;
-import mm.HttpClient;
 import mm.MatchMaker;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.mockserver.client.server.MockServerClient;
+import org.mockserver.integration.ClientAndServer;
+import org.mockserver.model.Header;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.HttpResponse.response;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-@Ignore
 public class ConnectionControllerTest {
-    private HttpClient httpCl = new HttpClient();
+    private ClientAndServer mockServer;
+
+    @Autowired
+    MockMvc mockMvc;
 
     @Before
     public void setUp() throws Exception {
-        ConnectionController.set_gameId("5");
-        MatchMaker.set_GameId("5");
-        MatchMaker.set_players_in_game(2);
+        mockMvc = MockMvcBuilders.standaloneSetup(new ConnectionController()).build();
+
+        mockServer = mockServer.startClientAndServer(8080);
+
+        new MockServerClient("localhost", 8080)
+                .when(request().withMethod("POST").withPath("/game/create")
+                        .withBody("4").withHeader("\"Content-type\", \"text/plain\""))
+                .respond(response().withHeaders(new Header("Content-Type", "text/plain"))
+                        .withBody("0"));
+
+        Thread matchMaker = new Thread(new MatchMaker());
+        matchMaker.start();
     }
 
     @Test
     public void returnedId() throws Exception {
-        String gameId = httpCl.post("http://localhost:8090/matchmaker/join", "name");
-        assertEquals(gameId, "5");
+        MvcResult mvcRes = mockMvc.perform(post("/matchmaker/join").content("name=a")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)).andReturn();
+        String result = mvcRes.getResponse().getContentAsString();
+        assertEquals(result, "0");
+    }
+
+    @After
+    public void stop() throws Exception {
+        mockServer.stop();
     }
 }

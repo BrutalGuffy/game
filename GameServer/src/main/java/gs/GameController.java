@@ -22,8 +22,7 @@ public class GameController {
     @RequestMapping(
             path = "game/create",
             method = RequestMethod.POST,
-            consumes = "application/json",
-            headers = "content-type=application/x-www-form-urlencoded")
+            consumes = "text/plain")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public String create(@RequestBody String count, HttpServletResponse response, HttpServletRequest request)
@@ -38,8 +37,7 @@ public class GameController {
     @RequestMapping(
             path = "game/start",
             method = RequestMethod.POST,
-            consumes = "application/json",
-            headers = "content-type=application/x-www-form-urlencoded")
+            consumes = "text/plain")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public String start(@RequestBody String gameId, HttpServletResponse response, HttpServletRequest request)
@@ -47,5 +45,9 @@ public class GameController {
         response.setHeader("Access-Control-Allow-Origin", "*");
         log.info("Starting game GameId={}", gameId);
         return gameId;
+    }
+
+    public static void setIdGenerator(long id) {
+        idGenerator.set(id);
     }
 }
