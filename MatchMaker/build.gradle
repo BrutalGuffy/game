@@ -5,11 +5,10 @@ dependencies {
     compile rootProject.libraries.postgres
     compile rootProject.libraries.jetbrainsAnnotations
     compile rootProject.libraries.hibernate
-    compile ('org.mock-server:mockserver-maven-plugin:3.10.8')
+    compile rootProject.libraries.mockServer
     testCompile rootProject.libraries.junit
     testCompile rootProject.libraries.spring_boot_test
     testCompile("com.jayway.restassured:spring-mock-mvc:2.9.0")
-
 }
 
 
@@ -28,5 +27,5 @@ sourceSets {
 
 configurations {
     compile.exclude group:'ch.qos.logback'
-    compile.exclude group:'process-test-classes'
+
 }

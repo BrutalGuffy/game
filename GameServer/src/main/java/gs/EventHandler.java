@@ -1,11 +1,13 @@
 package gs;
 
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+
 
 @Component
 public class EventHandler extends TextWebSocketHandler implements WebSocketHandler {
@@ -26,5 +28,4 @@ public class EventHandler extends TextWebSocketHandler implements WebSocketHandl
         System.out.println("Socket Closed: [" + closeStatus.getCode() + "] " + closeStatus.getReason());
         super.afterConnectionClosed(session, closeStatus);
     }
-
 }

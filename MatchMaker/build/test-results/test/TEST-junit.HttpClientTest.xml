@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="junit.HttpClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-12-02T15:31:48" hostname="dmitry-Aspire-E5-571G" time="8.486">
+  <properties/>
+  <testcase name="postRequest" classname="junit.HttpClientTest" time="8.486"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/dmitry/.gradle/caches/modules-2/files-2.1/org.mock-server/mockserver-netty/3.10.8/c3e90f0ca6c320a658f11fab07498fac36fa9ee7/mockserver-netty-3.10.8-jar-with-dependencies.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/dmitry/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.25/8dacf9514f0c707cbbcdd6fd699e8940d42fb54e/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+]]></system-err>
+</testsuite>

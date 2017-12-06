@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class HttpClient {
 
     OkHttpClient client = new OkHttpClient();
-    //DefaultHttpClient client = new DefaultHttpClient();
+
     public String post(String url, String body) throws Exception {
 
         Request request = new Request.Builder()
@@ -21,13 +21,6 @@ public class HttpClient {
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
-/*
-
-        return response.body().string();
-        HttpPost req = new HttpPost(url);
-        HttpResponse response = client.execute(req);
-        String responseBody = IOUtils.toString(response.getEntity().getContent());
-        return  responseBody;*/
     }
 }
 

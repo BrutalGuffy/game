@@ -9,6 +9,8 @@ springBoot {
 
 // constants declaration
 ext {
+
+    jettyVersion = "9.3.12.v20160915"
     jdkVersion = 1.9
     junitVersion = "4.12"
     jacksonVersion = "2.9.1"
@@ -66,6 +68,7 @@ ext.libraries = [
 
         spring_boot_test : "org.springframework.boot:spring-boot-starter-test",
         spring_boot_websocket: "org.springframework.boot:spring-boot-starter-websocket",
+
         junit: "junit:junit:$junitVersion",
         log4j: [
                 "org.apache.logging.log4j:log4j-api:$log4jVersion",
@@ -81,7 +84,9 @@ ext.libraries = [
         websocketapi: "org.eclipse.jetty.websocket:websocket-api:$websocketVersion",
         jackson: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
         jol: "org.openjdk.jol:jol-core:$jolVersion",
-        jol_samples: "org.openjdk.jol:jol-samples:$jolVersion"
+        jol_samples: "org.openjdk.jol:jol-samples:$jolVersion",
+        mockServer: 'org.mock-server:mockserver-netty:3.10.2',
+        gson: 'com.google.code.gson:gson:2.8.2',
 ]
 
 // code coverage settings

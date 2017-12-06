@@ -2,6 +2,10 @@ dependencies {
     compile rootProject.libraries.spring_boot
     compile rootProject.libraries.log4j
     compile rootProject.libraries.spring_boot_websocket
+    compile rootProject.libraries.websocketclient
+    compile rootProject.libraries.websocketserver
+    compile rootProject.libraries.websocketapi
+    compile rootProject.libraries.gson
 
     testCompile rootProject.libraries.junit
     testCompile rootProject.libraries.spring_boot_test
