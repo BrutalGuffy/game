@@ -1,5 +1,6 @@
-package gs;
+package gameserver;
 
+import gamemechanic.GameMechanics;
 import objects.Tickable;
 import org.slf4j.LoggerFactory;
 

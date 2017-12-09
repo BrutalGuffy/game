@@ -1,7 +1,5 @@
 package dto;
 
-import objects.Movable;
-
 public class DataDto {
     private String direction;
 

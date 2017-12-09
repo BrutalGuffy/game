@@ -1,23 +1,18 @@
-package gs;
+package gameserver;
 
-import Client.Action;
-import geometry.Point;
+import client.Message;
 import objects.*;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Set;
 
 public class GameMechanics implements Tickable {
-    private ArrayList<Action> lastActions = new ArrayList<>();
+    private ArrayList<Message> lastActions = new ArrayList<>(8);
 
-    public GameMechanics () {
-        lastActions.ensureCapacity(8);
-    }
+    public void doMechanic(Set<Tickable> tickables) {
 
-    public void mechanic(Set<Tickable> tickables) {
-        for (Action action: InputQueue.getInstance()) {
-            if (Objects.equals(action.getTopicDto().getTopic(), "PLANT_BOMB")) {
+        /*for (Message action: InputQueue.getInstance()) {
+            /*if (Objects.equals(action.getTopicDto().getTopic(), "PLANT_BOMB")) {
                 lastActions.add(action.getId() - 1, action);
                 continue;
             }
@@ -26,7 +21,7 @@ public class GameMechanics implements Tickable {
 
         InputQueue.getInstance().clear();
 
-        for (Action action: lastActions) {
+        for (Message action: lastActions) {
             if (action == null) {
                 break;
             }
@@ -50,8 +45,7 @@ public class GameMechanics implements Tickable {
                     player.setDirection(action.getTopicDto().getData().getDirection());
                 }
             }
-        }
-
+        }*/
     }
 
     @Override

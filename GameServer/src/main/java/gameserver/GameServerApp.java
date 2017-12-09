@@ -1,23 +1,17 @@
 package gs;
 
-import com.google.gson.Gson;
-import dto.BombDto;
-import dto.DataDto;
-import dto.TopicDto;
-import geometry.Point;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import replica.Replicator;
-
-import java.util.ArrayList;
 
 
-//@SpringBootApplication
+@SpringBootApplication
 public class GameServerApp {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(GameServerApp.class, args);
-        Thread gameServer = new Thread(new GameServer());
-        gameServer.start();
+        //Thread gameServer = new Thread(new GameServer());
+        //gameServer.setName("123");
+        //gameServer.start();
         //Ticker ticker = new Ticker();
         //ticker.gameLoop();
         /*ArrayList<Object> replica = new ArrayList<>();
@@ -27,7 +21,8 @@ public class GameServerApp {
         bombDto.set_position(point);
         replica.add(bombDto);
         replica.add(bombDto);
-        Gson gson = new Gson();
+        System.out.println(JsonHelper.toJson(replica));
+       /* Gson gson = new Gson();
         String str = gson.toJson(bombDto);
         System.out.println(str);
         String json = "{\"topic\":\"PLANT_BOMB\",   \"data\": {}}";

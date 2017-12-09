@@ -1,7 +1,6 @@
-package gs;
+package gameserver;
 
-import Client.Action;
-import dto.TopicDto;
+import client.Action;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
