@@ -6,20 +6,22 @@ import geometry.Point;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 public class Bomb implements GameObject, Positionable, Tickable {
     /*
     * Bomb, will be destroy after allTime
     */
-    private AtomicLong idGenerator = new AtomicLong();
-    private int id = (int) idGenerator.getAndIncrement();
-    private static final double allTime = 2000;
-    private double lifeTime;
+    private int id;
+    private static AtomicInteger intId = new AtomicInteger();
+    private final double allTime = 3000;
+    private double lifeTime = allTime;
     private Point position;
     private static final Logger log = LogManager.getLogger(Player.class);
 
     public Bomb(Point p) {
         this.position = new Point(p.getX(), p.getY());
+        this.id = intId.incrementAndGet();
         log.info("new Bomb id = {} has been planted", id);
     }
 

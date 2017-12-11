@@ -20,7 +20,7 @@ public class MatchMaker implements Runnable {
                 //POST REQUEST TO 8090/create/game---->
                 HttpClient httpCl = new HttpClient();
                 try {
-                    gameId = httpCl.post("http://localhost:8080/game/create", Integer.toString(PLAYERS_NEED));
+                    gameId = httpCl.post("http://localhost:8090/game/create", Integer.toString(PLAYERS_NEED));
                     log.info("GS returned Game_Id={}",gameId);
                     ConnectionController.set_gameId(gameId);
                     players_in_game++;

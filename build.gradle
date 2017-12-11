@@ -85,7 +85,6 @@ ext.libraries = [
         jackson: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
         jol: "org.openjdk.jol:jol-core:$jolVersion",
         jol_samples: "org.openjdk.jol:jol-samples:$jolVersion",
-        mockServer: 'org.mock-server:mockserver-netty:3.10.2',
         gson: 'com.google.code.gson:gson:2.8.2',
 ]
 

@@ -1,19 +1,25 @@
 package geometry;
 
 public class Point implements Collider {
-    private final int x;
-    private final int y;
+    private double x;
+    private double y;
 
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public void setPoint(Point point) {
+        this.x = point.getX();
+        this.y = point.getY();
+    }
+    public void setX (double x) { this.x = x; }
+    public void setY (double y) { this.y = y; }
+
+    public double getX() {
         return x;
     }
-
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -28,18 +34,13 @@ public class Point implements Collider {
         return y == point.y;
     }
 
-    @Override
-    public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
-        return result;
-    }
+
 
     @Override
     public boolean isColliding(Collider other) {
         if (other instanceof Point) {
             return this.equals(other);
         }
-        throw new UnsupportedOperationException();
+        return false;
     }
 }

@@ -1,8 +1,13 @@
-package gameserver;
+package gamemechanic;
 
-import gamemechanic.GameMechanics;
-import objects.Tickable;
+import dto.PossesDto;
+import dto.ReplicaDto;
+import gamesession.GameSession;
+import geometry.Point;
+import objects.*;
 import org.slf4j.LoggerFactory;
+import websocket.Broker;
+import websocket.ConnectionPool;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -13,39 +18,45 @@ public class Ticker {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(Ticker.class);
     private static final int FPS = 60;
     private static final long FRAME_TIME = 1000 / FPS;
-    private Set<Tickable> tickables = new ConcurrentSkipListSet<>();
-    private long tickNumber = 0;
+    private static final Set<Tickable> tickables = new ConcurrentSkipListSet<>();
+    private static long tickNumber = 0;
 
     public void gameLoop() {
         GameMechanics gameMechanics = new GameMechanics();
         while (!Thread.currentThread().isInterrupted()) {
             long started = System.currentTimeMillis();
-            //gameMechanics.mechanic(tickables);
-            //some actions with queue
-            act(FRAME_TIME);
+            gameMechanics.readQueue(); /*read actions**/
+            gameMechanics.changeTickables(tickables); /*do mechanic**/
+            act(FRAME_TIME);   /*change all tickables**/
+            gameMechanics.tick(FRAME_TIME);
+            Broker.getInstance().broadcast( new ReplicaDto(GameSession.getAllDto(), false));
             long elapsed = System.currentTimeMillis() - started;
             if (elapsed < FRAME_TIME) {
-                log.info("All tick finish at {} ms", elapsed);
+                //log.info("All tick finish at {} ms", elapsed);
                 LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(FRAME_TIME - elapsed));
             } else {
-                log.warn("tick lag {} ms", elapsed - FRAME_TIME);
+                //log.warn("tick lag {} ms", elapsed - FRAME_TIME);
             }
-            log.info("{}: tick ", tickNumber);
+            //log.info("{}: tick ", tickNumber);
             tickNumber++;
         }
     }
 
-    public void registerTickable(Tickable tickable) {
-        tickables.add(tickable);
-    }
-
+    public static void registerTickable(Tickable tickable) { tickables.add(tickable); }
     public void unregisterTickable(Tickable tickable) {
         tickables.remove(tickable);
     }
-
-    private void act(long elapsed) { tickables.forEach(tickable -> tickable.tick(elapsed)); }
-
-    public long getTickNumber() {
+    public static long getTickNumber() {
         return tickNumber;
     }
+    private void act(long elapsed) {
+        for (Player player: GameSession.getMapPlayers()) {
+            player.tick(elapsed);
+        }
+        for (Bomb bomb: GameSession.getMapBombs()) {
+            bomb.tick(elapsed);
+        }
+        //tickables.forEach(tickable -> tickable.tick(elapsed));
+    }
+
 }

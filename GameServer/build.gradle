@@ -6,6 +6,7 @@ dependencies {
     compile rootProject.libraries.websocketserver
     compile rootProject.libraries.websocketapi
     compile rootProject.libraries.gson
+    compile rootProject.libraries.jetbrainsAnnotations
 
     testCompile rootProject.libraries.junit
     testCompile rootProject.libraries.spring_boot_test

@@ -21,8 +21,7 @@ public class ConnectionController {
     private static AtomicLong id = new AtomicLong();
     public static String gameId = "-1";
 
-    //@Autowired
-    //private GameService gameService;
+    // curl -i -X POST -H "Content-Type: application/x-www-form-urlencoded" localhost:8090/matchmaker/join -d 'name=1'
 
     @RequestMapping(
             path = "matchmaker/join",
@@ -32,13 +31,13 @@ public class ConnectionController {
     @ResponseBody
     public String connect(@RequestBody String name, HttpServletResponse response) throws InterruptedException {
         response.setHeader("Access-Control-Allow-Origin", "*");
-        log.info("Fronteng request={}", name);
+        log.info("Join request={}", name);
         long newId = id.getAndIncrement();
         String[] parts = name.split("=");
         ConnectionQueue.getInstance().offer(new Connection(newId, parts[1]));
 
         log.info("New connection LOGIN={} ID={}", parts[1],newId);
-        while (gameId == "-1") {   //have to fix this shit
+        while (gameId == "-1") {
             Thread.sleep(2000);
             log.info("Waiting for MatchMaker response",gameId);
         }

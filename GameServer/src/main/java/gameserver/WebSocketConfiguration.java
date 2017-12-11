@@ -1,8 +1,6 @@
-package gs;
+package gameserver;
 
-import gs.ConnectionHandler;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;

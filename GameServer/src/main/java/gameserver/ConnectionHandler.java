@@ -1,5 +1,7 @@
-package gs;
+package gameserver;
 
+import dto.PossesDto;
+import gamesession.GameSession;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -18,6 +20,7 @@ public class ConnectionHandler extends TextWebSocketHandler implements WebSocket
         String[] name = session.getUri().getQuery().split("=");
         ConnectionPool.getInstance().add(session, name[2]);
         System.out.println("Socket Connected: " + session);
+        GameSession.addPlayer(name[2]);
     }
 
     @Override
@@ -31,5 +34,4 @@ public class ConnectionHandler extends TextWebSocketHandler implements WebSocket
         super.afterConnectionClosed(session, closeStatus);
         ConnectionPool.getInstance().remove(session);
     }
-
 }

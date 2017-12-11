@@ -5,9 +5,6 @@ import mm.MatchMaker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockserver.client.server.MockServerClient;
-import org.mockserver.integration.ClientAndServer;
-import org.mockserver.model.Header;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -15,12 +12,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockserver.model.HttpRequest.request;
-import static org.mockserver.model.HttpResponse.response;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 public class ConnectionControllerTest {
-    private ClientAndServer mockServer;
+    /*private ClientAndServer mockServer;
 
     @Autowired
     MockMvc mockMvc;
@@ -52,5 +47,5 @@ public class ConnectionControllerTest {
     @After
     public void stop() throws Exception {
         mockServer.stop();
-    }
+    }*/
 }

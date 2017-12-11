@@ -1,15 +1,16 @@
-package gameserver;
+package gamemechanic;
 
 import client.Action;
 
+import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class InputQueue {
 
-    private static BlockingQueue<Action> instance = new LinkedBlockingQueue<>();
-    public static BlockingQueue<Action> getInstance() {
+    private static Queue<Action> instance = new ConcurrentLinkedQueue<>();
+    public static Queue<Action> getInstance() {
         return instance;
     }
-
 }

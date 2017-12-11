@@ -1,18 +1,23 @@
-package dto;
+package client;
 
-import client.Topic;
+import dto.MessageDataDto;
 
 public class Message {
     private Topic topic;
-    private DataDto data;
+    private MessageDataDto data;
+
+    public Message(Topic topic_info, MessageDataDto data_info) {
+        this.topic = topic_info;
+        this.data = data_info;
+    }
 
     public void set_topic(Topic topic_info) {
         topic = topic_info;
     }
-    public void set_data(DataDto data_info) {
+    public void set_data(MessageDataDto data_info) {
         data = data_info;
     }
 
     public Topic getTopic() { return topic; }
-    public DataDto getData() { return data; }
+    public MessageDataDto getData() { return data; }
 }

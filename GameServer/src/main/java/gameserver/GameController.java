@@ -1,4 +1,4 @@
-package gs;
+package gameserver;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,7 +46,6 @@ public class GameController {
         log.info("Starting game GameId={}", gameId);
         return gameId;
     }
-
     public static void setIdGenerator(long id) {
         idGenerator.set(id);
     }
