@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class Player implements GameObject, Positionable, Movable, Tickable {
     private int id;
-    private AtomicInteger intId = new AtomicInteger();
+    private static AtomicInteger intId = new AtomicInteger();
     private String name;
     private double speed;
     private String direction;

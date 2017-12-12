@@ -26,18 +26,16 @@ public class Ticker {
         while (!Thread.currentThread().isInterrupted()) {
             long started = System.currentTimeMillis();
             gameMechanics.readQueue(); /*read actions**/
-            gameMechanics.changeTickables(tickables); /*do mechanic**/
+            gameMechanics.changeTickables(); /*prepare tickables for mechanic**/
             act(FRAME_TIME);   /*change all tickables**/
-            gameMechanics.tick(FRAME_TIME);
+            gameMechanics.tick(FRAME_TIME);/*do mechanic**/
             Broker.getInstance().broadcast( new ReplicaDto(GameSession.getAllDto(), false));
             long elapsed = System.currentTimeMillis() - started;
             if (elapsed < FRAME_TIME) {
-                //log.info("All tick finish at {} ms", elapsed);
                 LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(FRAME_TIME - elapsed));
             } else {
-                //log.warn("tick lag {} ms", elapsed - FRAME_TIME);
+                log.warn("tick lag {} ms", elapsed - FRAME_TIME);
             }
-            //log.info("{}: tick ", tickNumber);
             tickNumber++;
         }
     }
@@ -56,7 +54,8 @@ public class Ticker {
         for (Bomb bomb: GameSession.getMapBombs()) {
             bomb.tick(elapsed);
         }
-        //tickables.forEach(tickable -> tickable.tick(elapsed));
+        for (Fire fire: GameSession.getMapFire()) {
+            fire.tick(elapsed);
+        }
     }
-
 }

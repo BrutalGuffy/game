@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-public class Fire implements GameObject, Positionable {
+public class Fire implements GameObject, Positionable, Tickable {
     /*
     * FIRE! appears after bomb target
     */
@@ -17,6 +17,7 @@ public class Fire implements GameObject, Positionable {
     private static AtomicInteger intId = new AtomicInteger();
     private Point position;
     private static final Logger log = LogManager.getLogger(Player.class);
+    private double lifeTime = 1000;
 
     public Fire(Point p) {
         this.id = intId.incrementAndGet();
@@ -37,6 +38,17 @@ public class Fire implements GameObject, Positionable {
         position.setY(point.getY());
     }
 
+    @Override
+    public void tick(long elapsed){
+        lifeTime -= elapsed;
+    }
 
+    public double getLifeTime() {
+        return lifeTime;
+    }
+
+    public void setLifeTime(double lifeTime) {
+        this.lifeTime = lifeTime;
+    }
 }
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
@@ -37,7 +38,7 @@ public class ConnectionController {
         ConnectionQueue.getInstance().offer(new Connection(newId, parts[1]));
 
         log.info("New connection LOGIN={} ID={}", parts[1],newId);
-        while (gameId == "-1") {
+        while (Objects.equals(gameId, "-1")) {
             Thread.sleep(2000);
             log.info("Waiting for MatchMaker response",gameId);
         }

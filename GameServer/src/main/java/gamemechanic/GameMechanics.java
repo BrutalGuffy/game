@@ -15,7 +15,7 @@ import java.util.Set;
 public class GameMechanics implements Tickable {
     private ArrayList<Action> lastActions = new ArrayList<>();
 
-    public void changeTickables(Set<Tickable> tickables) {
+    public void changeTickables() {
         for (Action action: lastActions) {
             if (action == null) {
                 continue;
@@ -87,46 +87,30 @@ public class GameMechanics implements Tickable {
         ArrayList<Bomb> bombList = new ArrayList<>();
         ArrayList<Wood> woodList = new ArrayList<>();
         ArrayList<Player> playerList = new ArrayList<>();
+        ArrayList<Fire> fireList = new ArrayList<>();
 
         boolean horizontalRight = true;
         boolean verticalUp = true;
         boolean horizontalLeft = true;
         boolean verticalDown = true;
 
+        for (Fire fire: GameSession.getMapFire()) {
+            if (fire.getLifeTime() <= 0)
+                fireList.add(fire);
+        }
         for (Bomb bomb: GameSession.getMapBombs()) {
             if (bomb.getLifeTime() <= 0) {
                 bombList.add(bomb);
 
-                Point pointCurrent = new Point(bomb.getPosition().getX(), bomb.getPosition().getY());
+                Bar barBombVerticalUp1 = new Bar(Point.getUp1Position(bomb.getPosition()));
+                Bar barBombVerticalUp2 = new Bar(Point.getUp2Position(bomb.getPosition()));
+                Bar barBombHorizontalRight1 = new Bar(Point.getRight1Position(bomb.getPosition()));
+                Bar barBombHorizontalRight2 = new Bar(Point.getRight2Position(bomb.getPosition()));
 
-                Point pointHorizontalRight1 = new Point(bomb.getPosition().getX()+ GameObject.width,
-                        bomb.getPosition().getY());
-                Point pointHorizontalRight2 = new Point(bomb.getPosition().getX()+ GameObject.width*2,
-                        bomb.getPosition().getY());
-                Point pointHorizontalLeft1 = new Point(bomb.getPosition().getX() - GameObject.width,
-                        bomb.getPosition().getY());
-                Point pointHorizontalLeft2 = new Point(bomb.getPosition().getX()- GameObject.width*2,
-                        bomb.getPosition().getY());
-
-                Point pointVerticalUp1 = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() + GameObject.height);
-                Point pointVerticalUp2 = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() + GameObject.height*2);
-                Point pointVerticalDown1 = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() - GameObject.height);
-                Point pointVerticalDown2 = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() - GameObject.height*2);
-;
-
-                Bar barBombVerticalUp1 = new Bar(pointVerticalUp1);
-                Bar barBombVerticalUp2 = new Bar(pointVerticalUp2);
-                Bar barBombHorizontalRight1 = new Bar(pointHorizontalRight1);
-                Bar barBombHorizontalRight2 = new Bar(pointHorizontalRight2);
-
-                Bar barBombVerticalDown1 = new Bar(pointVerticalDown1);
-                Bar barBombVerticalDown2 = new Bar(pointVerticalDown2);
-                Bar barBombHorizontalLeft1 = new Bar(pointHorizontalLeft1);
-                Bar barBombHorizontalLeft2 = new Bar(pointHorizontalLeft2);
+                Bar barBombVerticalDown1 = new Bar(Point.getDown1Position(bomb.getPosition()));
+                Bar barBombVerticalDown2 = new Bar(Point.getDown2Position(bomb.getPosition()));
+                Bar barBombHorizontalLeft1 = new Bar(Point.getLeft1Position(bomb.getPosition()));
+                Bar barBombHorizontalLeft2 = new Bar(Point.getLeft2Position(bomb.getPosition()));
 
                 for (Wall wall: GameSession.getMapWalls()) {
                     Bar barWall = new Bar(wall);
@@ -230,6 +214,9 @@ public class GameMechanics implements Tickable {
         }
         for (Player player: playerList) {
             GameSession.getMapPlayers().remove(player);
+        }
+        for (Fire fire: fireList) {
+            GameSession.getMapFire().remove(fire);
         }
     }
 

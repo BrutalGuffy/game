@@ -34,14 +34,7 @@ public class GameSession {
     public static ArrayList<Wood> getMapWoods() { return mapWood; }
     public static ArrayList<Fire> getMapFire() { return mapFire; }
 
-    public static void addPlayer(String name) {
-        Player player = new Player(name);
-        mapPlayers.add(player);
-        System.out.println(player.getName());
-        System.out.println(player.getPosition().getX());
-        System.out.println(player.getPosition().getY());
-    }
-
+    public static void addPlayer(String name) {  mapPlayers.add(new Player(name)); }
     public static void addPlayer(Player player) {
         mapPlayers.add(player);
     }
