@@ -32,10 +32,12 @@ public class Ticker {
             Broker.getInstance().broadcast( new ReplicaDto(GameSession.getAllDto(), false));
             long elapsed = System.currentTimeMillis() - started;
             if (elapsed < FRAME_TIME) {
+                //log.info("All tick finish at {} ms", elapsed);
                 LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(FRAME_TIME - elapsed));
             } else {
                 log.warn("tick lag {} ms", elapsed - FRAME_TIME);
             }
+            //log.info("{}: tick ", tickNumber);
             tickNumber++;
         }
     }
@@ -57,5 +59,8 @@ public class Ticker {
         for (Fire fire: GameSession.getMapFire()) {
             fire.tick(elapsed);
         }
+
+        //tickables.forEach(tickable -> tickable.tick(elapsed));
     }
+
 }

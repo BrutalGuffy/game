@@ -121,4 +121,12 @@ public class GameSession {
             GameSession.addWood(new Point(x, GameObject.width*8));
         }
     }
+
+    public static boolean getWallByPoint(Point point) {
+        for (Wall wall: mapWalls) {
+            if (Objects.equals(wall.getPosition(), point))
+                return true;
+        }
+        return false;
+    }
 }

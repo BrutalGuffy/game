@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbe16f31-0b86-446e-b8ff-e8402431d391" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/out/production/classes/gamemechanic/GameMechanics.class" afterPath="$PROJECT_DIR$/GameServer/out/production/classes/gamemechanic/GameMechanics.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/out/production/classes/gamesession/GameSession.class" afterPath="$PROJECT_DIR$/GameServer/out/production/classes/gamesession/GameSession.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/out/production/classes/geometry/Point.class" afterPath="$PROJECT_DIR$/GameServer/out/production/classes/geometry/Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/out/production/classes/objects/Player.class" afterPath="$PROJECT_DIR$/GameServer/out/production/classes/objects/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/out/production/classes/websocket/Broker.class" afterPath="$PROJECT_DIR$/GameServer/out/production/classes/websocket/Broker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/Ticker.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/Ticker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/geometry/Point.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/geometry/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/objects/Fire.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/objects/Fire.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameServer/src/main/java/objects/Player.java" afterPath="$PROJECT_DIR$/GameServer/src/main/java/objects/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MatchMaker/src/main/java/mm/ConnectionController.java" afterPath="$PROJECT_DIR$/MatchMaker/src/main/java/mm/ConnectionController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -79,31 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameMechanics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameSession.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConnectionHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gameserver/ConnectionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state relative-caret-position="226">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,7 +82,7 @@
       <file leaf-file-name="Broker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/websocket/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
+            <state relative-caret-position="360">
               <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
               <folding />
             </state>
@@ -164,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ticker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ticker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/Ticker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+            <state relative-caret-position="252">
+              <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1313,12 +1283,12 @@
         <option value="$PROJECT_DIR$/GameServer/src/main/java/objects/Bomb.java" />
         <option value="$PROJECT_DIR$/MatchMaker/src/main/java/mm/ConnectionController.java" />
         <option value="$PROJECT_DIR$/GameServer/src/main/java/geometry/Point.java" />
-        <option value="$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java" />
         <option value="$PROJECT_DIR$/GameServer/src/main/java/objects/Player.java" />
         <option value="$PROJECT_DIR$/GameServer/src/main/java/websocket/Broker.java" />
         <option value="$PROJECT_DIR$/GameServer/src/main/java/objects/Fire.java" />
-        <option value="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java" />
+        <option value="$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java" />
         <option value="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/Ticker.java" />
+        <option value="$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java" />
       </list>
     </option>
   </component>
@@ -1394,6 +1364,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="bomberman" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
@@ -1892,7 +1872,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.027777778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31699347" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2071,13 +2051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bomberman/frontend/src/main/webapp/js/ServerProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="85" column="41" lean-forward="false" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -2294,38 +2267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gameserver/ConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/websocket/Broker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/dto/ObjectDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -2334,10 +2275,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/websocket/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/Ticker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        <state relative-caret-position="252">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bomberman/frontend/src/main/webapp/js/ServerProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamemechanic/GameMechanics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3078">
+          <caret line="181" column="16" lean-forward="true" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gamesession/GameSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameServer/src/main/java/gameserver/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>

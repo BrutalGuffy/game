@@ -178,33 +178,24 @@ public class GameMechanics implements Tickable {
         for (Bomb bomb: bombList) {
             GameSession.getMapFire().add(new Fire(bomb.getPosition()));
             if (verticalUp) {
-                Point point = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() + GameObject.height);
-                GameSession.getMapFire().add(new Fire(point));
-                point.setY(bomb.getPosition().getY() + GameObject.height*2);
-                GameSession.getMapFire().add(new Fire(point));
+                GameSession.getMapFire().add(new Fire(Point.getUp1Position(bomb.getPosition())));
+                if (!GameSession.getWallByPoint(Point.getUp2Position(bomb.getPosition())))
+                    GameSession.getMapFire().add(new Fire(Point.getUp2Position(bomb.getPosition())));
             }
             if (verticalDown) {
-                Point point = new Point(bomb.getPosition().getX(),
-                        bomb.getPosition().getY() - GameObject.height);
-                GameSession.getMapFire().add(new Fire(point));
-                point.setY(bomb.getPosition().getY() - GameObject.height*2);
-                GameSession.getMapFire().add(new Fire(point));
+                GameSession.getMapFire().add(new Fire(Point.getDown1Position(bomb.getPosition())));
+                if (!GameSession.getWallByPoint(Point.getDown2Position(bomb.getPosition())))
+                    GameSession.getMapFire().add(new Fire(Point.getDown2Position(bomb.getPosition())));
             }
-
             if (horizontalRight) {
-                Point point = new Point(bomb.getPosition().getX() + GameObject.width,
-                        bomb.getPosition().getY());
-                GameSession.getMapFire().add(new Fire(point));
-                point.setX(bomb.getPosition().getX() + GameObject.width*2);
-                GameSession.getMapFire().add(new Fire(point));
+                GameSession.getMapFire().add(new Fire(Point.getRight1Position(bomb.getPosition())));
+                if (!GameSession.getWallByPoint(Point.getRight2Position(bomb.getPosition())))
+                    GameSession.getMapFire().add(new Fire(Point.getRight2Position(bomb.getPosition())));
             }
             if (horizontalLeft) {
-                Point point = new Point(bomb.getPosition().getX() - GameObject.width,
-                        bomb.getPosition().getY());
-                GameSession.getMapFire().add(new Fire(point));
-                point.setX(bomb.getPosition().getX() - GameObject.width*2);
-                GameSession.getMapFire().add(new Fire(point));
+                GameSession.getMapFire().add(new Fire(Point.getLeft1Position(bomb.getPosition())));
+                if (!GameSession.getWallByPoint(Point.getLeft2Position(bomb.getPosition())))
+                    GameSession.getMapFire().add(new Fire(Point.getLeft2Position(bomb.getPosition())));
             }
             GameSession.getMapBombs().remove(bomb);
         }
