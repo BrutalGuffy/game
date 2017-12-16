@@ -11,7 +11,7 @@ springBoot {
 ext {
 
     jettyVersion = "9.3.12.v20160915"
-    jdkVersion = 1.9
+    jdkVersion = 1.8
     junitVersion = "4.12"
     jacksonVersion = "2.9.1"
     log4jVersion = "2.7"
@@ -85,6 +85,7 @@ ext.libraries = [
         jackson: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
         jol: "org.openjdk.jol:jol-core:$jolVersion",
         jol_samples: "org.openjdk.jol:jol-samples:$jolVersion",
+        mockServer: 'org.mock-server:mockserver-netty:3.10.2',
         gson: 'com.google.code.gson:gson:2.8.2',
 ]
 

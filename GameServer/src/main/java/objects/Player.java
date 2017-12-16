@@ -5,9 +5,11 @@ import geometry.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Array;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.ArrayList;
 
 public class Player implements GameObject, Positionable, Movable, Tickable {
     private int id;
@@ -17,14 +19,25 @@ public class Player implements GameObject, Positionable, Movable, Tickable {
     private String direction;
     private Point position;
     private final Logger log = LogManager.getLogger(Player.class);
+    private static ArrayList<Point> points = new ArrayList<Point>();
+    private Point point1 = new Point(32,352);
+    private Point point2 = new Point(470,352);
+    private Point point3 = new Point(470,32);
+    private Point point4 = new Point(32,32);
+
 
     public Player(String name_) {
         name = name_;
         speed = 0.4;
         id = intId.incrementAndGet();
-        this.position = new Point(32, 32);
+        points.add(point1);
+        points.add(point2);
+        points.add(point3);
+        points.add(point4);
+        this.position = new Point(points.get(id).getX(),points.get(id).getY());
         log.info("new Player has been created");
     }
+
 
     public Player(String name_, Point p) {
         name = name_;
@@ -32,6 +45,7 @@ public class Player implements GameObject, Positionable, Movable, Tickable {
         position = new Point(p.getX(), p.getY());
         log.info("new Player has been created");
     }
+
 
     public void setName(String name_) { name = name_; }
     public void setPosition(Point point) {

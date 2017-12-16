@@ -4,7 +4,14 @@ import dto.PossesDto;
 import dto.ReplicaDto;
 import gamesession.GameSession;
 import geometry.Point;
-import objects.*;
+import objects.Bomb;
+import objects.Player;
+import objects.Fire;
+import objects.GameObject;
+import objects.Wood;
+import objects.Tickable;
+import objects.Movable;
+import objects.Wall;
 import org.slf4j.LoggerFactory;
 import websocket.Broker;
 import websocket.ConnectionPool;
@@ -29,7 +36,7 @@ public class Ticker {
             gameMechanics.changeTickables(); /*prepare tickables for mechanic**/
             act(FRAME_TIME);   /*change all tickables**/
             gameMechanics.tick(FRAME_TIME);/*do mechanic**/
-            Broker.getInstance().broadcast( new ReplicaDto(GameSession.getAllDto(), false));
+            Broker.getInstance().broadcast(new ReplicaDto(GameSession.getAllDto(), false));
             long elapsed = System.currentTimeMillis() - started;
             if (elapsed < FRAME_TIME) {
                 //log.info("All tick finish at {} ms", elapsed);
@@ -42,13 +49,18 @@ public class Ticker {
         }
     }
 
-    public static void registerTickable(Tickable tickable) { tickables.add(tickable); }
+    public static void registerTickable(Tickable tickable) {
+        tickables.add(tickable);
+    }
+
     public void unregisterTickable(Tickable tickable) {
         tickables.remove(tickable);
     }
+
     public static long getTickNumber() {
         return tickNumber;
     }
+
     private void act(long elapsed) {
         for (Player player: GameSession.getMapPlayers()) {
             player.tick(elapsed);

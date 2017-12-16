@@ -35,10 +35,16 @@ public class ObjectDto {
         type = "Bomb";
     }
 
-    public void setPosition(Point point) { position = point; }
-    public void setType(String _type) { type = _type; }
-    public void setId(int _id) {
-        id = _id;
+    public void setPosition(Point point) {
+        position = point;
+    }
+
+    public void setType(String obType) {
+        type = obType;
+    }
+
+    public void setId(int obId) {
+        id = obId;
     }
 
 }

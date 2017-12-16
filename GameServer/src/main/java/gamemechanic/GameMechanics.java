@@ -6,13 +6,21 @@ import client.Topic;
 import gamesession.GameSession;
 import geometry.Bar;
 import geometry.Point;
-import objects.*;
-
+import objects.Bomb;
+import objects.Player;
+import objects.Fire;
+import objects.GameObject;
+import objects.Wood;
+import objects.Tickable;
+import objects.Movable;
+import objects.Wall;
+import objects.Positionable;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
 public class GameMechanics implements Tickable {
+    private boolean collisionOut = false;
     private ArrayList<Action> lastActions = new ArrayList<>();
 
     public void changeTickables() {
@@ -34,10 +42,12 @@ public class GameMechanics implements Tickable {
         lastActions.clear();
     }
 
-    public void readQueue () {
+    public void readQueue() {
+
         while (lastActions.size() < 8) {
             lastActions.add(null);
         }
+
         for (Action action: InputQueue.getInstance()) {
             if (Objects.equals(action.getMessage().getTopic().toString(), "PLANT_BOMB")) {
                 lastActions.add(GameSession.getPlayerId(action.getName()) - 1, action);
@@ -57,9 +67,21 @@ public class GameMechanics implements Tickable {
                     player.moveBack();
                 }
             }
+
             for (Wood wood: GameSession.getMapWoods()) {
                 Bar barWood = new Bar(wood);
                 if (barPlayer.isColliding(barWood)) {
+                    player.moveBack();
+                }
+            }
+
+            for (Bomb bomb: GameSession.getMapBombs()) {
+                Bar barBomb = new Bar(bomb);
+                if (!barPlayer.isColliding(barBomb)) {
+                    collisionOut = true;
+                }
+
+                if (barPlayer.isColliding(barBomb) & collisionOut) {
                     player.moveBack();
                 }
             }
@@ -77,8 +99,7 @@ public class GameMechanics implements Tickable {
                 return new Point(divX * GameObject.width, divY * GameObject.height);
             else
                 return new Point(divX * GameObject.width, (divY + 1) * GameObject.height);
-        }
-        else if (modY < 16)
+        } else if (modY < 16)
             return new Point((divX + 1) * GameObject.width, divY * GameObject.height);
         return new Point((divX + 1) * GameObject.width, (divY + 1) * GameObject.height);
     }
@@ -95,9 +116,12 @@ public class GameMechanics implements Tickable {
         boolean verticalDown = true;
 
         for (Fire fire: GameSession.getMapFire()) {
-            if (fire.getLifeTime() <= 0)
+            if (fire.getLifeTime() <= 0) {
                 fireList.add(fire);
+                collisionOut = false;
+            }
         }
+
         for (Bomb bomb: GameSession.getMapBombs()) {
             if (bomb.getLifeTime() <= 0) {
                 bombList.add(bomb);
@@ -209,6 +233,8 @@ public class GameMechanics implements Tickable {
         for (Fire fire: fireList) {
             GameSession.getMapFire().remove(fire);
         }
+
+
     }
 
     @Override

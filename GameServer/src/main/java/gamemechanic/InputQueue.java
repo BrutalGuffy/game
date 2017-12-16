@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class InputQueue {
 
     private static Queue<Action> instance = new ConcurrentLinkedQueue<>();
+
     public static Queue<Action> getInstance() {
         return instance;
     }

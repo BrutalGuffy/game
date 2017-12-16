@@ -2,14 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="bomberman_frontend_main" target="1.9" />
-      <module name="bomberman_frontend_test" target="1.9" />
-      <module name="game_main" target="1.9" />
-      <module name="game_test" target="1.9" />
-      <module name="GameServer_main" target="1.9" />
-      <module name="GameServer_test" target="1.9" />
-      <module name="MatchMaker_main" target="1.9" />
-      <module name="MatchMaker_test" target="1.9" />
+      <module name="bomberman_frontend_main" target="1.8" />
+      <module name="bomberman_frontend_test" target="1.8" />
+      <module name="game_main" target="1.8" />
+      <module name="game_test" target="1.8" />
+      <module name="GameServer_main" target="1.8" />
+      <module name="GameServer_test" target="1.8" />
+      <module name="MatchMaker_main" target="1.8" />
+      <module name="MatchMaker_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
